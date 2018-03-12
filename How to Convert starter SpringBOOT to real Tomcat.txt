@@ -1,0 +1,59 @@
+How to Convert starter SpringBOOT (for embeded Tomcat) to REAL TOMCAT
+
+
+Link HOW TO - http://www.mkyong.com/spring-boot/spring-boot-deploy-war-file-to-tomcat/
+
+
+1. Change POM.XML:
+
+1.1 Delete Test block
+1.2 Insert that blocK:
+
+<!-- marked the embedded servlet container as provided -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+2. Comment code in your Test app like this:
+
+ /*
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest */
+public class Spa4ApplicationTests {
+/*
+	@Test
+	public void contextLoads() {
+	}
+*/
+}
+
+3. Change Main Application Class to this view:
+
+       
+package com.mkyong;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
+
+@SpringBootApplication
+public class SpringBootWebApplication extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(SpringBootWebApplication.class);
+    }
+
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(SpringBootWebApplication.class, args);
+    }
+
+}

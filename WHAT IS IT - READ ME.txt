@@ -1,0 +1,9 @@
+This Project created by Anton Romanov (www.antonromanov.com) 27.12.2017 at 17:02
+Last (GIT) Edit - 28.12.2017, 16:43 (Annino)
+
+This is real Working SpringBoot Servlet REAL configuring for Tomcat.
+
+REST-Service URL = http://192.168.1.34:8080/spa46/rest/user/hello?name=1
+
+
+Git Hub repo - https://github.com/RESTfulSPBLessons/RESTFul-Simple-REAL-WORKING-Spring-Boot
